@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Create server
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="server_creation_form">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <h3 class="mt-4">Server ip</h3>
+        {{ ip_form.id }}
+        {{ ip_form|crispy }}
+        <button type="submit" class="btn btn-success mt-3 mb-3">Submit</button>
+    </form>
+{% endblock %}

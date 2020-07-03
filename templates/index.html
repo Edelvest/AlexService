@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Server list
+{% endblock %}
+
+{% block content %}
+    <h2>Server list</h2>
+    <div class="row justify-content-center">
+        {% for server in servers %}
+            {% if not server.parent %}
+                <div class="card col-md-4 bg-light">
+                    <h5 class="card-header">{{ server.name }}</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Server description</h5>
+                        <p class="card-text text-truncate">{{ server.description }}</p>
+                        <h5 class="card-title">Server type</h5>
+                        <p class="card-text">{{ server.server_type }}</p>
+                        <a href="{% url 'info' pk=server.pk %}" class="btn btn-info">{{ server.name }} info</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <a href="{% url 'create' %}" class="btn btn-primary mt-3">Add server</a>
+{% endblock %}
