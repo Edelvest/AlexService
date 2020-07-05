@@ -15,6 +15,8 @@ class Server(models.Model):
     description = models.TextField(verbose_name='Server description')
     create_dt = models.DateTimeField(auto_now_add=True, verbose_name='Creation date')
     server_type = models.CharField(max_length=2, choices=SERVER_TYPE, verbose_name='Server type')
+    cpu = models.CharField(max_length=40, verbose_name='CPU')
+    ram = models.PositiveIntegerField(verbose_name='RAM')
 
     def __str__(self):
         return self.name

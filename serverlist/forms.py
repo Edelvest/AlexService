@@ -7,7 +7,7 @@ from .models import *
 class ServerCreationForm(forms.ModelForm):
     class Meta:
         model = Server
-        fields = ['name', 'description', 'server_type']
+        fields = ['name', 'description', 'server_type', 'cpu', 'ram']
 
 
 class IpCreationForm(forms.ModelForm):

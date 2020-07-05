@@ -12,6 +12,16 @@
             <p class="card-text">{{ server.description }}</p>
             <h5 class="card-title">Server type</h5>
             <p class="card-text">{{ server.server_type }}</p>
+            <div class="row">
+                <div class="card-body">
+                    <h5 class="card-title">CPU</h5>
+                    <p class="card-text text-truncate">{{ server.cpu }}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">RAM</h5>
+                    <p class="card-text">{{ server.ram }} gb</p>
+                </div>
+            </div>
         </div>
         <div class="row">
             <a href="{% url 'update' pk=server.pk %}" class="btn btn-success col-md m-4">Update server</a>
@@ -32,7 +42,7 @@
             <ul class="list-group list-group-flush mt-2">
                 {% for serv in list %}
                     <li class="list-group-item"><a href="{% url 'info' pk=serv.pk %}"
-                           class="text-decoration-none">{{ serv.name }}</a></li>
+                                                   class="text-decoration-none">{{ serv.name }}</a></li>
                 {% empty %}
                     <p>Foreign servers list is empty</p>
                 {% endfor %}

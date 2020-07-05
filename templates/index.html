@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Server list
+    Server list
 {% endblock %}
 
 {% block content %}
@@ -16,6 +16,16 @@ Server list
                         <p class="card-text text-truncate">{{ server.description }}</p>
                         <h5 class="card-title">Server type</h5>
                         <p class="card-text">{{ server.server_type }}</p>
+                        <div class="row">
+                            <div class="card-body">
+                                <h5 class="card-title">CPU</h5>
+                                <p class="card-text text-truncate">{{ server.cpu }}</p>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">RAM</h5>
+                                <p class="card-text">{{ server.ram }} gb</p>
+                            </div>
+                        </div>
                         <a href="{% url 'info' pk=server.pk %}" class="btn btn-info">{{ server.name }} info</a>
                     </div>
                 </div>
